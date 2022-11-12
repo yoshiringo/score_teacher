@@ -1,0 +1,28 @@
+{% load humanize %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ラウンド日</th>
+            <th scope="col">スコア</th>
+            <th scope="col">OB</th>
+            <th scope="col">ペナルティ</th>
+            <th scope="col">FWキープ</th>
+            <th scope="col">パーオン</th>
+            <th scope="col">パット</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stat in person.stat_set.all  %}
+        <tr>
+            <th>{{ stat.date|date:'Y-m-d'  }}</th>
+            <th>{{ stat.total_score }}</th>
+            <th>{{ stat.ob }}</th>
+            <th>{{ stat.penalty }}</th>
+            <th>{{ stat.fw }}%</th>
+            <th>{{ stat.par_on }}%</th>
+            <th>{{ stat.putt }}</th>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
